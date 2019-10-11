@@ -7,7 +7,7 @@ function BoilingVerdict(props) {
   if (props.celsius >= 100) {
     return <p>The water will boil at this temperature!</p>;
   }
-  return <p>This water ain't gonna boil itself!</p>;
+  return <p>The water ain't gonna boil itself!</p>;
 }
 
 export default BoilingVerdict;

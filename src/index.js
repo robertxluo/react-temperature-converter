@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import Button from './components/Button';
 import Calculator from './components/Calculator';
+import Wrapper from './components/Wrapper';
 
 const Title = styled.h1`
   color: #f9703e;
@@ -12,12 +13,6 @@ const Title = styled.h1`
   line-height: 1.1;
   margin: 2rem;
   text-align: center;
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 `;
 
 function App() {
