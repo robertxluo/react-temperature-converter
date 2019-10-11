@@ -12,6 +12,7 @@ const Input = styled.input`
   font-size: 2rem;
   width: 100vw;
   height: 10vh;
+  text-align: center;
 `;
 
 const scaleNames = {
