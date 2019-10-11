@@ -1,13 +1,26 @@
 import React from 'react';
+import styled from 'styled-components';
 
-//#BA2525
-//#4C63B6
+const VerdictDescription = styled.p`
+  color: ${props => (props.primary ? '#ba2525' : '#4c63b6')};
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 1.5rem;
+  text-align: center;
+`;
 
 function BoilingVerdict(props) {
   if (props.celsius >= 100) {
-    return <p>The water will boil at this temperature!</p>;
+    return (
+      <VerdictDescription primary>
+        The water is boiling, it will eventually be mist...
+      </VerdictDescription>
+    );
+  } else if (props.celsius <= 0) {
+    return <VerdictDescription>Freeze! Put your hands up!</VerdictDescription>;
   }
-  return <p>The water ain't gonna boil itself!</p>;
+
+  return null;
 }
 
 export default BoilingVerdict;
