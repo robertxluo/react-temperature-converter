@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import styled from 'styled-components';
 
-import Button from './components/Button';
+// import Button from './components/Button';
 import Calculator from './components/Calculator';
 import Wrapper from './components/Wrapper';
 
@@ -20,8 +20,8 @@ function App() {
     <Wrapper>
       <Title>Temperature Converter</Title>
       <Calculator />
-      <Button>Normal Button</Button>
-      <Button primary>Primary Button</Button>
+      {/* <Button>Normal Button</Button>
+      <Button primary>Primary Button</Button> */}
     </Wrapper>
   );
 }

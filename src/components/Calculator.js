@@ -4,16 +4,28 @@ import BoilingVerdict from './BoilingVerdict';
 import TemperatureInput from './TemperatureInput';
 import Wrapper from './Wrapper';
 
-function toCelsius(fahrenheit) {
+function toCelsiusWithFahrenheit(fahrenheit) {
   return ((fahrenheit - 32) * 5) / 9;
 }
 
-function toFahrenheit(celsius) {
+function toCelsiusWithKelvin(kelvin) {
+  return kelvin - 273.15;
+}
+
+function toFahrenheitWithCelsius(celsius) {
   return (celsius * 9) / 5 + 32;
 }
 
-function toKelvin(celsius) {
+function toFahrenheitWithKelvin(kelvin) {
+  return (kelvin - 273.15) * (9 / 5) + 32;
+}
+
+function toKelvinWithCelsius(celsius) {
   return celsius + 273.15;
+}
+
+function toKelvinWithFahrenheit(fahrenheit) {
+  return (fahrenheit + 459.67) * (5 / 9);
 }
 
 function tryConvert(temperature, convert) {
@@ -61,9 +73,26 @@ class Calculator extends React.Component {
   render() {
     const scale = this.state.scale;
     const temperature = this.state.temperature;
-    const celsius = scale === 'f' ? tryConvert(temperature, toCelsius) : temperature;
-    const fahrenheit = scale === 'c' ? tryConvert(temperature, toFahrenheit) : temperature;
-    const kelvin = scale === 'c' ? tryConvert(temperature, toKelvin) : temperature;
+    const celsius =
+      scale === 'f'
+        ? tryConvert(temperature, toCelsiusWithFahrenheit)
+        : scale === 'k'
+        ? tryConvert(temperature, toCelsiusWithKelvin)
+        : temperature;
+
+    const fahrenheit =
+      scale === 'c'
+        ? tryConvert(temperature, toFahrenheitWithCelsius)
+        : scale === 'k'
+        ? tryConvert(temperature, toFahrenheitWithKelvin)
+        : temperature;
+
+    const kelvin =
+      scale === 'c'
+        ? tryConvert(temperature, toKelvinWithCelsius)
+        : scale === 'f'
+        ? tryConvert(temperature, toKelvinWithFahrenheit)
+        : temperature;
 
     return (
       <Wrapper>
