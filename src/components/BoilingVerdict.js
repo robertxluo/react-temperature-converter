@@ -13,11 +13,11 @@ function BoilingVerdict(props) {
   if (props.celsius >= 100) {
     return (
       <VerdictDescription primary>
-        The water is boiling, it will eventually be mist...
+        Water would boil here, it will eventually be mist...
       </VerdictDescription>
     );
   } else if (props.celsius <= 0) {
-    return <VerdictDescription>Freeze! Put your hands up!</VerdictDescription>;
+    return <VerdictDescription>Water would freeze here, it will be ice-olated.</VerdictDescription>;
   }
 
   return null;
