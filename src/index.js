@@ -17,8 +17,13 @@ const Title = styled.h1`
 
 function App() {
   return (
-    <Wrapper>
-      <Title>Temperature Converter</Title>
+    <Wrapper border>
+      <Title>
+        <span role="img" aria-label="Thermometer">
+          🌡️
+        </span>{' '}
+        Temperature Converter
+      </Title>
       <Calculator />
       {/* <Button>Normal Button</Button>
       <Button primary>Primary Button</Button> */}
