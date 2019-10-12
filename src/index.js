@@ -25,8 +25,6 @@ function App() {
         Temperature Converter
       </Title>
       <Calculator />
-      {/* <Button>Normal Button</Button>
-      <Button primary>Primary Button</Button> */}
     </Wrapper>
   );
 }
