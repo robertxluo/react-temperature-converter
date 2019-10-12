@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import BoilingVerdict from './BoilingVerdict';
 import TemperatureInput from './TemperatureInput';
@@ -44,90 +44,73 @@ function tryConvert(temperature, convert) {
   return rounded.toString();
 }
 
-class Calculator extends React.Component {
-  constructor(props) {
-    super(props);
+function Calculator() {
+  const [scale, setScale] = useState('c');
+  const [temperature, setTemperature] = useState('');
 
-    this.state = { temperature: '', scale: 'c' };
-
-    this.handleCelsiusChange = this.handleCelsiusChange.bind(this);
-    this.handleFahrenheitChange = this.handleFahrenheitChange.bind(this);
-    this.handleKelvinChange = this.handleKelvinChange.bind(this);
+  function handleCelsiusChange(temperature) {
+    setScale('c');
+    setTemperature(temperature);
   }
 
-  handleCelsiusChange(temperature) {
-    this.setState({
-      scale: 'c',
-      temperature
-    });
+  function handleFahrenheitChange(temperature) {
+    setScale('f');
+    setTemperature(temperature);
   }
 
-  handleFahrenheitChange(temperature) {
-    this.setState({
-      scale: 'f',
-      temperature
-    });
+  function handleKelvinChange(temperature) {
+    setScale('k');
+    setTemperature(temperature);
   }
 
-  handleKelvinChange(temperature) {
-    this.setState({
-      scale: 'k',
-      temperature
-    });
-  }
+  const celsius =
+    scale === 'f'
+      ? tryConvert(temperature, toCelsiusWithFahrenheit)
+      : scale === 'k'
+      ? tryConvert(temperature, toCelsiusWithKelvin)
+      : temperature;
 
-  render() {
-    const scale = this.state.scale;
-    const temperature = this.state.temperature;
-    const celsius =
-      scale === 'f'
-        ? tryConvert(temperature, toCelsiusWithFahrenheit)
-        : scale === 'k'
-        ? tryConvert(temperature, toCelsiusWithKelvin)
-        : temperature;
+  const fahrenheit =
+    scale === 'c'
+      ? tryConvert(temperature, toFahrenheitWithCelsius)
+      : scale === 'k'
+      ? tryConvert(temperature, toFahrenheitWithKelvin)
+      : temperature;
 
-    const fahrenheit =
-      scale === 'c'
-        ? tryConvert(temperature, toFahrenheitWithCelsius)
-        : scale === 'k'
-        ? tryConvert(temperature, toFahrenheitWithKelvin)
-        : temperature;
+  const kelvin =
+    scale === 'c'
+      ? tryConvert(temperature, toKelvinWithCelsius)
+      : scale === 'f'
+      ? tryConvert(temperature, toKelvinWithFahrenheit)
+      : temperature;
 
-    const kelvin =
-      scale === 'c'
-        ? tryConvert(temperature, toKelvinWithCelsius)
-        : scale === 'f'
-        ? tryConvert(temperature, toKelvinWithFahrenheit)
-        : temperature;
-
-    return (
-      <Wrapper>
-        <TemperatureInput
-          scale="c"
-          temperature={celsius}
-          onTemperatureChange={this.handleCelsiusChange}
-          onKeyDown={e => e.keyCode === 69 && e.preventDefault()}
-        />
-        <TemperatureInput
-          scale="f"
-          temperature={fahrenheit}
-          onTemperatureChange={this.handleFahrenheitChange}
-          onKeyDown={e => e.keyCode === 69 && e.preventDefault()}
-        />
-        <TemperatureInput
-          scale="k"
-          temperature={kelvin}
-          onTemperatureChange={this.handleKelvinChange}
-          onKeyDown={e => e.keyCode === 69 && e.preventDefault()}
-        />
-        <BoilingVerdict
-          celsius={parseFloat(celsius)}
-          fahrenheit={parseFloat(fahrenheit)}
-          kelvin={parseFloat(kelvin)}
-        />
-      </Wrapper>
-    );
-  }
+  return (
+    <Wrapper>
+      <TemperatureInput
+        scale="c"
+        temperature={celsius}
+        onTemperatureChange={handleCelsiusChange}
+        onKeyDown={e => e.keyCode === 69 && e.preventDefault()}
+      />
+      <TemperatureInput
+        scale="f"
+        temperature={fahrenheit}
+        onTemperatureChange={handleFahrenheitChange}
+        onKeyDown={e => e.keyCode === 69 && e.preventDefault()}
+      />
+      <TemperatureInput
+        scale="k"
+        temperature={kelvin}
+        onTemperatureChange={handleKelvinChange}
+        onKeyDown={e => e.keyCode === 69 && e.preventDefault()}
+      />
+      <BoilingVerdict
+        celsius={parseFloat(celsius)}
+        fahrenheit={parseFloat(fahrenheit)}
+        kelvin={parseFloat(kelvin)}
+      />
+    </Wrapper>
+  );
 }
 
 export default Calculator;
