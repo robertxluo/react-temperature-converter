@@ -13,7 +13,7 @@ const Input = styled.input`
   color: #52606d;
   font-size: 2rem;
   width: 300px;
-  height: 10vh;
+  height: 80px;
   text-align: center;
 
   &:focus {
