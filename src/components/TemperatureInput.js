@@ -32,44 +32,31 @@ const scaleNames = {
   k: 'Kelvin'
 };
 
-class TemperatureInput extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      temperature: '',
-      min: ''
-    };
-
-    this.handleChange = this.handleChange.bind(this);
+function TemperatureInput(props) {
+  function handleChange(e) {
+    props.onTemperatureChange(e.target.value);
   }
 
-  handleChange(e) {
-    this.props.onTemperatureChange(e.target.value);
-  }
+  const temperature = props.temperature;
+  const scale = props.scale;
+  const onKeyDown = props.onKeyDown;
 
-  render() {
-    const temperature = this.props.temperature;
-    const scale = this.props.scale;
-    const onKeyDown = this.props.onKeyDown;
-
-    return (
-      <Wrapper>
-        <Label htmlFor={scaleNames[scale].toLowerCase()}>
-          Temperature in {scaleNames[scale]} ({scale !== 'k' && <span>°</span>}
-          {scale.toUpperCase()}):
-        </Label>
-        <Input
-          id={scaleNames[scale].toLowerCase()}
-          type="number"
-          name={scaleNames[scale].toLowerCase()}
-          value={temperature}
-          onChange={this.handleChange}
-          onKeyDown={onKeyDown}
-        />
-      </Wrapper>
-    );
-  }
+  return (
+    <Wrapper>
+      <Label htmlFor={scaleNames[scale].toLowerCase()}>
+        Temperature in {scaleNames[scale]} ({scale !== 'k' && <span>°</span>}
+        {scale.toUpperCase()}):
+      </Label>
+      <Input
+        id={scaleNames[scale].toLowerCase()}
+        type="number"
+        name={scaleNames[scale].toLowerCase()}
+        value={temperature}
+        onChange={handleChange}
+        onKeyDown={onKeyDown}
+      />
+    </Wrapper>
+  );
 }
 
 export default TemperatureInput;
