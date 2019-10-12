@@ -1,4 +1,4 @@
-# Temperature Converter
+# 🌡 Temperature Converter
 
 Convert temperatures to and from celsius, fahrenheit, and kelvin.
 
