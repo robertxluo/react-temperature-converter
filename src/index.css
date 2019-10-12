@@ -1,5 +1,5 @@
 /* Palette 21 */
-@import './reset.min.css';
+@import '/node_modules/modern-css-reset/dist/reset.min.css';
 @import url('https://rsms.me/inter/inter.css');
 
 html {
