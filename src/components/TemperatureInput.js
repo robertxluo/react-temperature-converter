@@ -54,11 +54,17 @@ class TemperatureInput extends React.Component {
 
     return (
       <Wrapper>
-        <Label>
+        <Label htmlFor={scaleNames[scale].toLowerCase()}>
           Temperature in {scaleNames[scale]} ({scale !== 'k' && <span>°</span>}
           {scale.toUpperCase()}):
         </Label>
-        <Input value={temperature} onChange={this.handleChange} type="number" />
+        <Input
+          id={scaleNames[scale].toLowerCase()}
+          type="number"
+          name={scaleNames[scale].toLowerCase()}
+          value={temperature}
+          onChange={this.handleChange}
+        />
       </Wrapper>
     );
   }

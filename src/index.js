@@ -8,7 +8,7 @@ import Calculator from './components/Calculator';
 import Wrapper from './components/Wrapper';
 
 const Title = styled.h1`
-  color: #f9703e;
+  color: #f35627;
   font-size: 2rem;
   line-height: 1.1;
   margin: 2rem;
