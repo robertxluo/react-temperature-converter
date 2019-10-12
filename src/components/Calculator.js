@@ -5,26 +5,32 @@ import TemperatureInput from './TemperatureInput';
 import Wrapper from './Wrapper';
 
 function toCelsiusWithFahrenheit(fahrenheit) {
+  if (fahrenheit < -459.67) return 'Invalid';
   return ((fahrenheit - 32) * 5) / 9;
 }
 
 function toCelsiusWithKelvin(kelvin) {
+  if (kelvin < 0) return 'Invalid';
   return kelvin - 273.15;
 }
 
 function toFahrenheitWithCelsius(celsius) {
+  if (celsius < -273.15) return 'Invalid';
   return (celsius * 9) / 5 + 32;
 }
 
 function toFahrenheitWithKelvin(kelvin) {
+  if (kelvin < 0) return 'Invalid';
   return (kelvin - 273.15) * (9 / 5) + 32;
 }
 
 function toKelvinWithCelsius(celsius) {
+  if (celsius < -273.15) return 'Invalid';
   return celsius + 273.15;
 }
 
 function toKelvinWithFahrenheit(fahrenheit) {
+  if (fahrenheit < -459.67) return 'Invalid';
   return (fahrenheit + 459.67) * (5 / 9);
 }
 
