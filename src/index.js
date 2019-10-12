@@ -17,7 +17,7 @@ const Title = styled.h1`
 
 function App() {
   return (
-    <Wrapper border>
+    <Wrapper>
       <Title>
         <span role="img" aria-label="Thermometer">
           🌡️
