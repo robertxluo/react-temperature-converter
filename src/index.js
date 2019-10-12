@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'modern-css-reset/dist/reset.min.css';
 import styled from 'styled-components';
 
-// import Button from './components/Button';
 import Calculator from './components/Calculator';
 import Wrapper from './components/Wrapper';
 
