@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import * as serviceWorker from './serviceWorker';
 import './index.css';
 import 'modern-css-reset/dist/reset.min.css';
 import styled from 'styled-components';
@@ -30,3 +31,4 @@ function App() {
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
+serviceWorker.register();
