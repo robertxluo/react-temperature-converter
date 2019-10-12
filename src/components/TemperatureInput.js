@@ -4,15 +4,26 @@ import styled from 'styled-components';
 import Wrapper from './Wrapper';
 
 const Label = styled.label`
+  color: #52606d;
   font-size: 1.2rem;
 `;
 const Input = styled.input`
-  border: none;
-  color: '#9aa5b1';
+  border: 3px solid #cbd2d9;
+  border-radius: 10px;
+  color: #52606d;
   font-size: 2rem;
-  width: 100vw;
+  width: 300px;
   height: 10vh;
   text-align: center;
+
+  &:focus {
+    box-shadow: 0 0 5px #19216c;
+    border-radius: 10px;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    outline: none;
+    border: 1px solid #19216c;
+  }
 `;
 
 const scaleNames = {
@@ -26,7 +37,8 @@ class TemperatureInput extends React.Component {
     super(props);
 
     this.state = {
-      temperature: ''
+      temperature: '',
+      min: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -42,8 +54,11 @@ class TemperatureInput extends React.Component {
 
     return (
       <Wrapper>
-        <Label>Enter temperature in {scaleNames[scale]}:</Label>
-        <Input value={temperature} onChange={this.handleChange} type="text" />
+        <Label>
+          Temperature in {scaleNames[scale]} ({scale !== 'k' && <span>°</span>}
+          {scale.toUpperCase()}):
+        </Label>
+        <Input value={temperature} onChange={this.handleChange} type="number" />
       </Wrapper>
     );
   }
