@@ -41,8 +41,8 @@ function BoilingVerdict(props) {
     return (
       <VerdictDescription secondary>
         Water would freeze here, it will be ice-olated.{' '}
-        <span role="img" aria-label="Ice">
-          🧊
+        <span role="img" aria-label="Snowflake">
+          ❄️
         </span>
       </VerdictDescription>
     );
