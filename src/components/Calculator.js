@@ -117,7 +117,11 @@ class Calculator extends React.Component {
           temperature={kelvin}
           onTemperatureChange={this.handleKelvinChange}
         />
-        <BoilingVerdict celsius={parseFloat(celsius)} />
+        <BoilingVerdict
+          celsius={parseFloat(celsius)}
+          fahrenheit={parseFloat(fahrenheit)}
+          kelvin={parseFloat(kelvin)}
+        />
       </Wrapper>
     );
   }
