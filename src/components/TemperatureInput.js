@@ -8,6 +8,7 @@ const Label = styled.label`
   font-size: 1.2rem;
 `;
 const Input = styled.input`
+  background-color: ${props => (props.invalid ? '#facdcd' : 'none')};
   border: 3px solid #cbd2d9;
   border-radius: 10px;
   color: #52606d;
@@ -40,6 +41,7 @@ function TemperatureInput(props) {
   const temperature = props.temperature;
   const scale = props.scale;
   const onKeyDown = props.onKeyDown;
+  const invalid = props.invalid;
 
   return (
     <Wrapper>
@@ -54,6 +56,7 @@ function TemperatureInput(props) {
         value={temperature}
         onChange={handleChange}
         onKeyDown={onKeyDown}
+        invalid={invalid}
       />
     </Wrapper>
   );
