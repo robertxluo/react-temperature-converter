@@ -106,16 +106,19 @@ class Calculator extends React.Component {
           scale="c"
           temperature={celsius}
           onTemperatureChange={this.handleCelsiusChange}
+          onKeyDown={e => e.keyCode === 69 && e.preventDefault()}
         />
         <TemperatureInput
           scale="f"
           temperature={fahrenheit}
           onTemperatureChange={this.handleFahrenheitChange}
+          onKeyDown={e => e.keyCode === 69 && e.preventDefault()}
         />
         <TemperatureInput
           scale="k"
           temperature={kelvin}
           onTemperatureChange={this.handleKelvinChange}
+          onKeyDown={e => e.keyCode === 69 && e.preventDefault()}
         />
         <BoilingVerdict
           celsius={parseFloat(celsius)}

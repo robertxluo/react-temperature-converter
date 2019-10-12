@@ -51,6 +51,7 @@ class TemperatureInput extends React.Component {
   render() {
     const temperature = this.props.temperature;
     const scale = this.props.scale;
+    const onKeyDown = this.props.onKeyDown;
 
     return (
       <Wrapper>
@@ -64,6 +65,7 @@ class TemperatureInput extends React.Component {
           name={scaleNames[scale].toLowerCase()}
           value={temperature}
           onChange={this.handleChange}
+          onKeyDown={onKeyDown}
         />
       </Wrapper>
     );
