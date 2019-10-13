@@ -101,11 +101,7 @@ function Calculator() {
         onKeyDown={e => e.keyCode === 69 && e.preventDefault()}
         invalid={kelvin < 0}
       />
-      <BoilingVerdict
-        celsius={parseFloat(celsius)}
-        fahrenheit={parseFloat(fahrenheit)}
-        kelvin={parseFloat(kelvin)}
-      />
+      <BoilingVerdict celsius={parseFloat(celsius)} />
     </Wrapper>
   );
 }

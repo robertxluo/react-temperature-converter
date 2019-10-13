@@ -17,21 +17,21 @@ const VerdictDescription = styled.p`
 `;
 
 function BoilingVerdict(props) {
-  if (props.celsius >= 100) {
-    return (
-      <VerdictDescription primary>
-        Water would boil here, it will eventually be mist...{' '}
-        <span role="img" aria-label="Steam">
-          ♨️
-        </span>
-      </VerdictDescription>
-    );
-  } else if (props.celsius < -273.15 || props.fahrenheit < -459.67 || props.kelvin < 0) {
+  if (props.celsius < -273.15) {
     return (
       <VerdictDescription invalid>
         This is an invalid temperature, try something higher.{' '}
         <span role="img" aria-label="Rocket">
           🚀
+        </span>
+      </VerdictDescription>
+    );
+  } else if (props.celsius >= 100) {
+    return (
+      <VerdictDescription primary>
+        Water would boil here, it will eventually be mist...{' '}
+        <span role="img" aria-label="Steam">
+          ♨️
         </span>
       </VerdictDescription>
     );
