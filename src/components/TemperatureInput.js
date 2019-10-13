@@ -21,7 +21,6 @@ const Input = styled.input`
     box-shadow: 0 0 5px #19216c;
     border-radius: 10px;
     padding: 3px 0px 3px 3px;
-    margin: 5px 1px 3px 0px;
     outline: none;
     border: 1px solid #19216c;
   }
