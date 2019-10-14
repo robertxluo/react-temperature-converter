@@ -18,11 +18,11 @@ const Input = styled.input`
   text-align: center;
 
   &:focus {
-    box-shadow: 0 0 5px #19216c;
+    box-shadow: ${props => (props.invalid ? '0 0 5px #ba2525' : '0 0 5px #19216c')};
     border-radius: 10px;
     padding: 3px 0px 3px 3px;
     outline: none;
-    border: 1px solid #19216c;
+    border: ${props => (props.invalid ? '3px solid #ba2525' : '3px solid #19216c')};
   }
 `;
 
