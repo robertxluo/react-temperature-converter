@@ -17,7 +17,7 @@ const VerdictDescription = styled.p`
 `;
 
 function BoilingVerdict(props) {
-  if (props.celsius < -273.15) {
+  if (props.celsius < -273.15 || props.fahrenheit < -459.67 || props.kelvin < 0) {
     return (
       <VerdictDescription invalid>
         This is an invalid temperature, try something higher.{' '}
